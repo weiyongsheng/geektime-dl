@@ -124,3 +124,21 @@ func (s *Service) VideoPlayInfo(playAuth string) (*VideoPlayInfo, error) {
 
 	return videoPlayInfo, nil
 }
+
+//SearchDailyLesson 搜索每日课程
+func (s *Service) SearchDailyLesson(kwd string) ([]*Article, error) {
+	body, err := s.requestSearchDailyLessons(kwd)
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer body.Close()
+
+	articleResult := &articleResult{}
+	if err := handleJSONParse(body, articleResult); err != nil {
+		return nil, err
+	}
+
+	return articleResult.Articles, nil
+}

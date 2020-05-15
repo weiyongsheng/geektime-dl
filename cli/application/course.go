@@ -64,3 +64,13 @@ func VideoPlayInfo(playAuth string) (*service.VideoPlayInfo, error) {
 
 	return videoPlayInfo, nil
 }
+
+//SearchDailyLesson 搜索每日课程
+func SearchDailyLesson(kwd string) ([]*service.Article, error) {
+	articles, err := getService().SearchDailyLesson(kwd)
+
+	if err != nil {
+		return nil, err
+	}
+	return articles, nil
+}

@@ -24,6 +24,8 @@ func main() {
 	app.Commands = append(app.Commands, cmds.NewLoginCommand()...)
 	app.Commands = append(app.Commands, cmds.NewBuyCommand()...)
 	app.Commands = append(app.Commands, cmds.NewCourseCommand()...)
+	app.Commands = append(app.Commands, cmds.NewDailyCommand()...)
+	app.Commands = append(app.Commands, cmds.NewSearchCommand()...)
 
 	app.Action = cmds.DefaultAction
 

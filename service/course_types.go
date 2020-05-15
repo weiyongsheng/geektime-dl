@@ -1,6 +1,8 @@
 package service
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 //CourseList 课程列表基础信息
 type CourseList struct {
@@ -52,6 +54,7 @@ type Course struct {
 //Article 课程文章信息
 type Article struct {
 	ID             int    `json:"id"`
+	ArticleID      int    `json:"article_id string"`
 	ArticleTitle   string `json:"article_title"`
 	ArticleSummary string `json:"article_summary"`
 	ArticleCover   string `json:"article_cover"`
@@ -61,6 +64,7 @@ type Article struct {
 	//Is can preview
 	ColumnHadSub        bool `json:"column_had_sub"`
 	ArticleCouldPreview bool `json:"article_could_preview"`
+	IsSub               bool `json:"is_sub"`
 	//Audio info
 	AudioDownloadURL string `json:"audio_download_url"`
 	AudioSize        int    `json:"audio_size"`
@@ -68,6 +72,7 @@ type Article struct {
 	VideoMediaMap json.RawMessage `json:"video_media_map"`
 	VideoID       string          `json:"video_id"`
 	VideoCover    string          `json:"video_cover"`
+	Sku           int             `json:"sku"`
 }
 
 //VideoPlayAuth 视频的播放授权信息

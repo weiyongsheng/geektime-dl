@@ -23,6 +23,12 @@ func (s *Service) requestCourses(couseType int) (io.ReadCloser, Error) {
 	return handleHTTPResponse(res, err)
 }
 
+//搜索每日课程
+func (s *Service) requestSearchDailyLessons(kwd string) (io.ReadCloser, Error) {
+	res, err := s.client.Req("POST", "https://time.geekbang.org/serv/v2/video/Search", map[string]string{"words": kwd, "size": "20", "page": "1"}, map[string]string{"Origin": "https://time.geekbang.org"})
+	return handleHTTPResponse(res, err)
+}
+
 //获取课程信息
 func (s *Service) requestCourseDetail(ids []int) (io.ReadCloser, Error) {
 	ii := map[string]interface{}{"ids": ids}

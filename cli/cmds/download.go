@@ -173,6 +173,10 @@ func extractVideoDownloadData(articles []*service.Article, aid int) []downloader
 			continue
 		}
 
+		if article.ID == 0 {
+			article.ID = article.ArticleID
+		}
+
 		videoIds[article.ID] = article.VideoID
 
 		videoMediaMaps := &map[string]downloader.VideoMediaMap{}

@@ -1,6 +1,8 @@
 package service
 
-import "github.com/mmzou/geektime-dl/utils"
+import (
+	"github.com/mmzou/geektime-dl/utils"
+)
 
 //Columns 获取专栏
 func (s *Service) Columns() ([]*Course, error) {
@@ -134,6 +136,12 @@ func (s *Service) SearchDailyLesson(kwd string) ([]*Article, error) {
 	}
 
 	defer body.Close()
+
+	// buf := new(bytes.Buffer)
+	// buf.ReadFrom(body)
+	// newStr := buf.String()
+
+	// println(newStr)
 
 	articleResult := &articleResult{}
 	if err := handleJSONParse(body, articleResult); err != nil {

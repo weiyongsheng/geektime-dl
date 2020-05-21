@@ -12,15 +12,16 @@ import (
 func NewSearchCommand() []cli.Command {
 	return []cli.Command{
 		{
-			Name:      "ds",
+			Name:      "dailysearch",
+			Aliases:   []string{"ds"},
 			Usage:     "搜索每日课程",
 			UsageText: appName + " ds [搜索词]",
-			Action:    searchAction,
+			Action:    dailySearchAction,
 		},
 	}
 }
 
-func searchAction(c *cli.Context) error {
+func dailySearchAction(c *cli.Context) error {
 	if c.NArg() == 0 {
 		cli.ShowSubcommandHelp(c)
 		println()

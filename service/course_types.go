@@ -54,12 +54,12 @@ type Course struct {
 //Article 课程文章信息
 type Article struct {
 	ID             int    `json:"id"`
-	ArticleID      int    `json:"article_id string"`
+	ArticleID      int    `json:"article_id,string"`
 	ArticleTitle   string `json:"article_title"`
 	ArticleSummary string `json:"article_summary"`
 	ArticleCover   string `json:"article_cover"`
 	ArticleTime    int    `json:"article_ctime"`
-	ChapterID      int    `json:"chapter_id string"`
+	ChapterID      int    `json:"chapter_id,string"`
 	IncludeAudio   bool   `json:"include_audio"`
 	//Is can preview
 	ColumnHadSub        bool `json:"column_had_sub"`
